@@ -1,0 +1,105 @@
+.Login
+{
+
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+.container
+{
+    width: 100vw;
+    height: 90vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.auth-box
+{
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+    width: 30%;
+    margin: auto;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2%;
+}
+.auth-items
+{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 30%;
+    align-items: baseline;
+    justify-content: center;
+    margin-left: 5%;
+    margin-bottom: 3%;
+}
+.auth-items input
+{
+    border: none;
+    width: 90%;
+    height: 100%;
+    margin-left: 5%;
+    background-color: transparent;
+}
+.auth-items input:focus
+{
+    background-color:transparent;
+    border: none;
+    outline: none;
+}
+.auth-items input:active
+{
+    background-color: white;
+}
+.input
+{
+    border: gray 3px solid;
+    width: 90%;
+    height: 30%;
+    background-color: white;
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+}
+.auth-detail
+{
+    margin: 2.5% 0;
+    font-size: 18px;
+    color: gray;
+}
+.auth-text
+{
+    margin-bottom: 3%;
+}
+.auth-text a
+{
+    font-size: 18px;
+    margin-bottom: 3%;
+    margin-top: 3%;
+    color: black;
+}
+.auth-btn button
+{
+    background-color: transparent;
+    height: 32px;
+    width: 5vw;
+    margin: 0 0.5vw;
+}
+
+.auth-btn
+{
+    background-color: #FFC93C;
+    border-radius: 50px;
+}
+.auth-box-sign-up
+{
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+    width: 30%;
+    margin: auto;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2%;
+}

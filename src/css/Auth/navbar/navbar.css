@@ -1,0 +1,32 @@
+.navbar
+{
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.logo
+{
+    font-size: 36px;
+    font-weight: 700;
+}
+.nav-items
+{
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+}
+.nav-btn
+{
+    width: 5vw;
+    margin: 0 0.5vw;
+    height: 32px;
+    background: transparent;
+}
+.sign-up
+{
+    background-color: #FFC93C;
+    border-radius: 50px;
+
+}
