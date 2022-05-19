@@ -1,0 +1,18 @@
+.BookingForm
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+}
+.BookingBox
+{
+    display: flex;
+    flex-direction: column;
+}
+.bookingFlex
+{
+    display: flex;
+    justify-content:space-between;
+    margin-bottom: 2%;
+}
