@@ -1,23 +1,48 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './../../css/Auth/navbar/navbar.css'
-function Navbar({active,login}) {
+import { Link } from 'react-router-dom'
+function Navbar() {
+    const [loginIn, setLoginIn] = useState('')
+    const handleLogout=e=>{
+        if(loginIn)
+        {
+            localStorage.removeItem('tokenEventManagement')
+            setLoginIn(false)
+        }
+    }
+
+  useEffect(()=>{
+    const token=localStorage.getItem('tokenEventManagement')
+    if(token)
+    {
+      setLoginIn(true)
+    }
+  })
   return (
     <nav className="navbar">
         <div className="logo">
             EVENTORG.
         </div>
-        <div className="nav-items">
-            <div className="item btn-div">
+        {loginIn && <div className="nav-items">
+        <div className="item btn-div sign-up">
+                <button className="nav-btn" onClick={e=>handleLogout(e)}>
+                    Log Out
+                </button>
+            </div>
+           
+        </div>}
+       {!loginIn && <div className="nav-items">
+       <div className="item btn-div">
                 <button className="nav-btn">
-                    Sign In
+                    <Link to='/'>Sign In</Link>
                 </button>
             </div>
             <div className="item btn-div sign-up">
                 <button className="nav-btn">
-                    Sign Up
+                    <Link to='/register'>Sign Up</Link>
                 </button>
             </div>
-        </div>
+        </div>}
     </nav>
   )
 }

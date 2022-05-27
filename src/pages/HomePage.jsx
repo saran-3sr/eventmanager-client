@@ -3,10 +3,11 @@ import Navbar from '../component/common/Navbar'
 import Home from '../component/Home/Home'
 import HomeOffered from '../component/Home/HomeOffered'
 
-function HomePage() {
+function HomePage(props) {
+  const {loginIn}=props
   return (
     <div className="HomePage">
-        <Navbar />
+        <Navbar loginIn={loginIn}/>
         <Home/>
         <HomeOffered/>
     </div>
