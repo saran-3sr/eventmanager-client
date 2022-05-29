@@ -5,6 +5,7 @@ import HomePage from "./pages/HomePage";
 import Footer from "./component/common/Footer";
 import BookingEvent from "./pages/BookingEvent";
 import { useEffect, useState } from "react";
+import AdminConsole from "./pages/AdminConsole";
 
 function App() {
   const [loginIn, setLoginIn] = useState('')
@@ -23,6 +24,7 @@ function App() {
         <Route path="/register" element={<Signup/>}/>
         <Route path="/home" element={<HomePage loginIn={loginIn}/>} />
         <Route path="/booking" element={<BookingEvent loginIn={loginIn}/>}/>
+        <Route path="/adminConsole" element={<AdminConsole/>}/>
       </Routes>
       <Footer />
     </div>

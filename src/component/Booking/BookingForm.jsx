@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { Box, Button, FormControl, InputLabel, MenuItem, Select } from '@mui/material'
 import { TextField } from '@mui/material'
 import './../../css/Booking/BookingForm.css'
+import { Modal } from 'react-bootstrap'
+import { useNavigate } from 'react-router-dom'
 // import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 // import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 // import { LocalizationProvider } from '@mui/x-date-pickers';
@@ -13,7 +15,7 @@ export default function BookingForm() {
     const [mobile, setMobile] = useState("")
     const [bookedDate, setBookedDate] = useState("")
     const [alternateMobile, setAlternateMobile] = useState("")
-
+    const [confirm,setConfirm] = useState(false)
     const handleChangeEvent=e=>{
         setEvent(e.target.value)
     }
@@ -45,22 +47,30 @@ export default function BookingForm() {
           },
           body:JSON.stringify(
             {
-                userName:req.body.userName,
-                firstName:req.body.firstName,
-                lastName:req.body.lastName,
-                address:req.body.address,
-                mobile:req.body.mobile,
-                bookedDate:req.body.bookedDate,
-                alternateMobile:req.body.alternateMobile||"",
-                eventType:req.body.eventType
+                firstName:firstName,
+                lastName:lastName,
+                address:address,
+                mobile:mobile,
+                bookedDate:bookedDate,
+                alternateMobile:alternateMobile||"",
+                eventType:event
             }
           )
         })
         const book= await response.json()
-        
+        console.log(book.status)
+        if(book.status)
+        {
+            setConfirm(true)
+            console.log("in")
+        }
       }
+
+      const navigate=useNavigate();
   return (
     <div className="BookingForm">
+    {!confirm &&
+    
         <Box
         component="form"
         autoComplete='off'
@@ -147,10 +157,21 @@ export default function BookingForm() {
                 </div>
             </div>
                 <div className="bookingBotton bookingFlex">
-                <Button variant="contained" color="success">Book Event</Button>
+                <Button variant="contained" color="success" onClick={e=>handleBook(e)}>Book Event</Button>
                 </div>               
         </Box>
         
+    }
+    
+    <div className="bookingModal">
+        
+    {confirm && 
+        <div>
+            <p>Your Booking has been recorded. Our executive will call you with 24 hrs to proceed further. Thank You!</p>
+            <Button variant="contained" color="success" onClick={ ()=>navigate('../home')}>Return To Home</Button>
+        </div>
+    }
+    </div>
     </div>
   )
 }

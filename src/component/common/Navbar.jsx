@@ -3,6 +3,7 @@ import './../../css/Auth/navbar/navbar.css'
 import { Link } from 'react-router-dom'
 function Navbar() {
     const [loginIn, setLoginIn] = useState('')
+    const [roles, setRoles] = useState('')
     const handleLogout=e=>{
         if(loginIn)
         {
@@ -18,6 +19,7 @@ function Navbar() {
       setLoginIn(true)
     }
   })
+
   return (
     <nav className="navbar">
         <div className="logo">
@@ -43,6 +45,17 @@ function Navbar() {
                 </button>
             </div>
         </div>}
+        {roles && <div className="nav-items">
+            <div className="item btn-div">
+            <button className="nav-btn" onClick={e=>handleLogout(e)}>
+                    Log Out
+                </button>
+            <button className="nav-btn">
+                    <Link to='/'>Admin</Link>
+            </button>
+            </div>
+        </div>
+        }
     </nav>
   )
 }
