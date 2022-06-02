@@ -15,6 +15,7 @@ export default function BookingForm() {
     const [mobile, setMobile] = useState("")
     const [bookedDate, setBookedDate] = useState("")
     const [alternateMobile, setAlternateMobile] = useState("")
+    const [eventDesc, setEventDesc] = useState("")
     const [confirm,setConfirm] = useState(false)
     const handleChangeEvent=e=>{
         setEvent(e.target.value)
@@ -37,6 +38,9 @@ export default function BookingForm() {
     const handleChangeAlternateMobile=e=>{
         setAlternateMobile(e.target.value)
     }
+    const handleChangeEventDesc=e=>{
+        setEventDesc(e.target.value)
+    }
 
     const handleBook=async (e)=>{
         e.preventDefault()
@@ -53,7 +57,8 @@ export default function BookingForm() {
                 mobile:mobile,
                 bookedDate:bookedDate,
                 alternateMobile:alternateMobile||"",
-                eventType:event
+                eventType:event,
+                eventDesc:eventDesc
             }
           )
         })
@@ -154,6 +159,17 @@ export default function BookingForm() {
                             InputLabelProps={{
                             shrink: true,
                             }}/>
+                </div>
+                <div className="dateTime bookingFlex">
+                    
+                    <TextField
+                            id="eventDesc"
+                            label="Event Description *"
+                            fullWidth
+                            placeholder='Event Description'
+                            onChange={handleChangeEventDesc}
+                            multiline
+                            />
                 </div>
             </div>
                 <div className="bookingBotton bookingFlex">
