@@ -41,9 +41,6 @@ const FetchOpenBook=async()=>{
                 }
             </div>
         </div>
-        <div className="orderClosed">
-            Hello Orders closed
-        </div>
     </div>
   )
 }
